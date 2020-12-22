@@ -2,6 +2,7 @@ const React = require('react');
 const {Component} = React;
 const {useState, useRef} = React;
 const Try = require('./Try');
+const TestRendering = require('./TestRendering');
 
 const WordRelay = () => {
     const[word, setWord] = useState('김밥');
@@ -50,6 +51,7 @@ const WordRelay = () => {
                 })
                 }
             </ul>
+            <TestRendering/>
         </>
     );
 }
