@@ -23,6 +23,16 @@ const Lotto = () => {
     const timeouts = useRef([]);
 
 
+    //꼼수
+    const mounted = useRef(false);
+    useEffect(()=> {
+        if(!mounted.current){
+            mounted.current = true;
+        }else{
+            //ajax호출 
+        }
+    }, []); // componentDidUpdate 시 실행만 하고 싶을 경우 사용. componentDidMount시엔 실행되지 않음. 
+
     useEffect(() => {
         
         console.log("useEffect");
@@ -46,6 +56,9 @@ const Lotto = () => {
         };
     }, [timeouts.current]); // 배열의 요소가 있으면 componentDidMount 와 componentDidUpdate 둘다 수행.
 
+    /*
+    * 자식에게 함수를 전달하는 경우엔 항상 `useCallback`을 사용해야 한다.
+    */
     const onClickRedo = useCallback(() => { //함수 자체를 기억하고 있다. useMemo는 리턴값을 기억한다는 차이가 있다.
         console.log("onClickRedo");
         console.log(winNumbers);
